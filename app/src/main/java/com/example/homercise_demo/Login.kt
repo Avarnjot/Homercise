@@ -22,28 +22,32 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        binding.btnLogin.setOnClickListener {
+//            val email = binding.edtxtEmail.text.toString()
+//            val password = binding.edtxtPass.text.toString()
+//            if (email.isNotEmpty() && password.isNotEmpty())
+//            {
+//                Login.auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
+//                    if (it.isSuccessful){
+////                        Toast.makeText(this, "Login Successfull", Toast.LENGTH_LONG).show()
+//                        //intent to home activity
+//                        startActivity(Intent(this, Home :: class.java))
+//                        finish()
+//                    }
+//                }.addOnFailureListener {
+//                    Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
+//                }
+//            }
+//        }
+
         binding.btnLogin.setOnClickListener {
-            val email = binding.edtxtEmail.text.toString()
-            val password = binding.edtxtPass.text.toString()
-            if (email.isNotEmpty() && password.isNotEmpty())
-            {
-                Login.auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-                    if (it.isSuccessful){
-//                        Toast.makeText(this, "Login Successfull", Toast.LENGTH_LONG).show()
-                        //intent to home activity
-                        startActivity(Intent(this, Home :: class.java))
-                        finish()
-                    }
-                }.addOnFailureListener {
-                    Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
-                }
-            }
+            startActivity(Intent(this, InLogin :: class.java))
+            finish()
         }
 
         binding.btnCreateAcc.setOnClickListener {
             startActivity(Intent(this, Register :: class.java))
             finish()
         }
-
-       }
+    }
 }

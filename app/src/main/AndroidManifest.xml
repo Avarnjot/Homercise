@@ -8,12 +8,18 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/exercise"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/exercise"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomerciseDemo"
         tools:targetApi="31">
+        <activity
+            android:name=".InLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
         <activity
             android:name=".FullBodyKneePushup"
             android:exported="false" />
@@ -78,7 +84,7 @@
             android:exported="false"
             android:label="@string/title_activity_exercise" />
         <activity
-            android:name=".Login"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

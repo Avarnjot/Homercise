@@ -25,7 +25,7 @@ class Home : AppCompatActivity() {
 
             binding.imageButton7.setOnClickListener {
                 val intent = Intent(this, Setting::class.java)
-                startActivity(intent)
+                startActivity(intent) 
             }
 
             binding.imageButton8.setOnClickListener {
