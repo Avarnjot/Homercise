@@ -7,13 +7,13 @@
     tools:context=".SplashActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="192dp"
-        android:layout_height="188dp"
+        android:id="@+id/loadrunning"
+        android:layout_width="112dp"
+        android:layout_height="71dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/exercise" />
+        app:srcCompat="@drawable/animation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
