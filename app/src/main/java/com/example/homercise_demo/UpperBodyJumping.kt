@@ -7,12 +7,18 @@ import android.os.Bundle
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homercise_demo.databinding.ActivityUpperBodyJumpingBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 class UpperBodyJumping : AppCompatActivity() {
 
     private lateinit var binding: ActivityUpperBodyJumpingBinding
     private lateinit var videoView1: VideoView
+    private lateinit var databaseRef: DatabaseReference
+    private val userId: String? = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var databaseManager: DatabaseManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -20,6 +26,8 @@ class UpperBodyJumping : AppCompatActivity() {
         binding = ActivityUpperBodyJumpingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        databaseRef = FirebaseDatabase.getInstance().reference
+        databaseManager = DatabaseManager()
 
         videoView1 = findViewById(R.id.video1)
 //        videoView2 = findViewById(R.id.videoView2)
@@ -36,7 +44,11 @@ class UpperBodyJumping : AppCompatActivity() {
         videoView1.setOnCompletionListener { mp ->
             mp.start()
 
+        }
 
+        binding.buttonAddToFavorites.setOnClickListener {
+            databaseManager.saveActivityToDatabase(videoUri1.toString(), "Jumping", this)
+        }
 
             binding.imageButton5.setOnClickListener {
                 val intent = Intent(this, Home::class.java)
@@ -60,4 +72,3 @@ class UpperBodyJumping : AppCompatActivity() {
 
         }
     }
-}

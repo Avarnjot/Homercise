@@ -7,16 +7,24 @@ import android.os.Bundle
 import android.widget.VideoView
 import com.example.homercise_demo.databinding.ActivityLowerBodySideLegBinding
 import com.example.homercise_demo.databinding.ActivityLowerBodySquatsBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LowerBodySideLeg : AppCompatActivity() {
 
     private lateinit var binding: ActivityLowerBodySideLegBinding
     private lateinit var videoViewSideleg: VideoView
+    private lateinit var databaseRef: DatabaseReference
+    private val userId: String? = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var databaseManager: DatabaseManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLowerBodySideLegBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        databaseRef = FirebaseDatabase.getInstance().reference
+        databaseManager = DatabaseManager()
 
         videoViewSideleg = findViewById(R.id.video1)
 //        videoView2 = findViewById(R.id.videoView2)
@@ -33,7 +41,11 @@ class LowerBodySideLeg : AppCompatActivity() {
         videoViewSideleg.setOnCompletionListener { mp ->
             mp.start()
 
+        }
 
+        binding.buttonAddToFavorites.setOnClickListener {
+            databaseManager.saveActivityToDatabase(videoUri1.toString(), "Side Leg", this)
+        }
 
                 binding.imageButton5.setOnClickListener {
                     val intent = Intent(this, Home::class.java)
@@ -56,4 +68,3 @@ class LowerBodySideLeg : AppCompatActivity() {
                 }
             }
         }
-}

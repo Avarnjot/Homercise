@@ -27,22 +27,25 @@ class Register : AppCompatActivity() {
 
 
         binding.btnAccCreateAcc.setOnClickListener {
+
             val email = binding.edtxtAccEmail.text.toString()
             val password = binding.edtxtAccPass.text.toString()
 
             val fName = binding.edtxtFirstName.text.toString()
-            val lName = binding.edtxtLastName.text.toString()
             val gender = binding.edtxtGender.text.toString()
             val age = binding.edtxtAge.text.toString().toIntOrNull()
+            val height = binding.edtxtHeight.text.toString().toDoubleOrNull()
+            val weight = binding.edtxtWeight.text.toString().toDoubleOrNull()
 
 
-            if (email.isNotEmpty() && password.isNotEmpty() && fName.isNotEmpty()) {
+            if (email.isNotEmpty() && password.isNotEmpty() && fName.isNotEmpty() && height != null && weight != null) {
+
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { authTask ->
                         if (authTask.isSuccessful) {
                             val currentUser = auth.currentUser
                             if (currentUser != null) {
-                                val user = UserModel(fName, lName, gender, age)
+                                val user = UserModel(fName, gender, age, height, weight)
                                 databaseReference.child(currentUser.uid).setValue(user)
                                     .addOnCompleteListener { dbTask ->
                                         if (dbTask.isSuccessful) {

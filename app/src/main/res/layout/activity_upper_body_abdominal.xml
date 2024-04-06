@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/inUpperBody"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:background="#EDECEC"
     tools:context=".Home">
 
 
-    <androidx.appcompat.widget.Toolbar
+
+<androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="63dp"
@@ -30,20 +24,141 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="386dp"
-        android:layout_height="57dp"
-        android:text="Upper Body Exercises"
-        android:textAlignment="viewStart"
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/black"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="4"
+        android:text="UPPER BODY EXERCISES"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/toolbar2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <VideoView
+                android:id="@+id/video1"
+                android:layout_width="369dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backLunge"
+                app:layout_constraintVertical_bias="0.045" />
+
+            <TextView
+                android:id="@+id/backLunge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Abdominal Crunches"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.016" />
+
+            <TextView
+                android:id="@+id/paraone"
+                android:layout_width="360dp"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/upper_body_abdominal_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/paratwo"
+                android:layout_width="360dp"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/upper_body_abdominal_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paraone"
+                app:layout_constraintVertical_bias="0.053" />
+
+            <TextView
+                android:id="@+id/parathree"
+                android:layout_width="360dp"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+
+                android:text="@string/upper_body_abdominal_3"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paratwo"
+                app:layout_constraintVertical_bias="0.066" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Instructions"
+                android:textAlignment="viewStart"
+                android:textAllCaps="true"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.105"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/video1"
+                app:layout_constraintVertical_bias="0.061" />
+
+            <Button
+                android:id="@+id/button_add_to_favorites"
+                android:layout_width="340dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="80dp"
+                android:backgroundTint="#FF1100"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Add to Favourites"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="25sp"
+                app:cornerRadius="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/parathree" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -103,87 +218,5 @@
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <VideoView
-        android:id="@+id/video1"
-        android:layout_width="369dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backLunge"
-        app:layout_constraintVertical_bias="0.045" />
-
-    <TextView
-        android:id="@+id/backLunge"
-        android:layout_width="327dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Abdominal Crunches"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.016" />
-
-    <TextView
-        android:id="@+id/paraone"
-        android:layout_width="366dp"
-        android:layout_height="wrap_content"
-        android:text="@string/upper_body_abdominal_1"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video1"
-        app:layout_constraintVertical_bias="0.216" />
-
-    <TextView
-        android:id="@+id/paratwo"
-        android:layout_width="366dp"
-        android:layout_height="wrap_content"
-        android:text="@string/upper_body_abdominal_2"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paraone"
-        app:layout_constraintVertical_bias="0.053" />
-
-    <TextView
-        android:id="@+id/parathree"
-        android:layout_width="366dp"
-        android:layout_height="wrap_content"
-        android:text="@string/upper_body_abdominal_3"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paratwo"
-        app:layout_constraintVertical_bias="0.066" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="236dp"
-        android:layout_height="50dp"
-        android:text="Instructions"
-        android:textAlignment="viewStart"
-        android:textAllCaps="true"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video1"
-        app:layout_constraintVertical_bias="0.061" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

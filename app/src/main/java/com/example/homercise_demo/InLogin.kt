@@ -18,6 +18,7 @@ class InLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         Login.auth = FirebaseAuth.getInstance()
 
         binding = ActivityInLoginBinding.inflate(layoutInflater)
@@ -26,14 +27,17 @@ class InLogin : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.edtxtEmail.text.toString()
             val password = binding.edtxtPass.text.toString()
+
             if (email.isNotEmpty() && password.isNotEmpty()) {
+
                 Login.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Login Successfull", Toast.LENGTH_LONG).show()
-                        //intent to home activity
                         startActivity(Intent(this, Home::class.java))
                         finish()
                     }
+
                 }.addOnFailureListener {
                     Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
                 }

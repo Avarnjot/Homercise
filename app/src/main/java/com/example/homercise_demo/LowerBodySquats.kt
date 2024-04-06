@@ -7,16 +7,25 @@ import android.os.Bundle
 import android.widget.VideoView
 import com.example.homercise_demo.databinding.ActivityLowerBodySquatsBinding
 import com.example.homercise_demo.databinding.ActivityUpperBodyAbdominalBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LowerBodySquats : AppCompatActivity() {
 
     private lateinit var binding: ActivityLowerBodySquatsBinding
     private lateinit var videoViewSquats: VideoView
+    private lateinit var databaseRef: DatabaseReference
+    private val userId: String? = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var databaseManager: DatabaseManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLowerBodySquatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        databaseRef = FirebaseDatabase.getInstance().reference
+        databaseManager = DatabaseManager()
 
         videoViewSquats = findViewById(R.id.video1)
 //        videoView2 = findViewById(R.id.videoView2)
@@ -33,6 +42,11 @@ class LowerBodySquats : AppCompatActivity() {
         videoViewSquats.setOnCompletionListener { mp ->
             mp.start()
 
+        }
+
+        binding.buttonAddToFavorites.setOnClickListener {
+            databaseManager.saveActivityToDatabase(videoUri1.toString(), "Squats", this)
+        }
 
 
             binding.imageButton5.setOnClickListener {
@@ -57,4 +71,3 @@ class LowerBodySquats : AppCompatActivity() {
             }
         }
     }
-}

@@ -31,6 +31,14 @@
     <string name="login1">Already Have an Account?</string>
     <string name="login2">Dont have an Account!</string>
 
+        <string-array name="gender_options">
+            <item>Gender</item>
+            <item>Male</item>
+            <item>Female</item>
+            <item>Other</item>
+        </string-array>
+
+    <string name="choose_gender">Gender</string>
 
 
 </resources>

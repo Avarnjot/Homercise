@@ -1,8 +1,11 @@
 package com.example.homercise_demo
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import com.example.homercise_demo.databinding.ActivityMainBinding
 
 class Home : AppCompatActivity() {

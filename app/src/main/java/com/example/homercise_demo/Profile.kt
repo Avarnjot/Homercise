@@ -36,19 +36,11 @@ class Profile : AppCompatActivity() {
             FirebaseDatabase.getInstance().getReference("Users")?.child(userId)
                 ?.get()?.addOnSuccessListener {
                     binding.txtUseremail.text = "${it.child("firstName").value.toString()}"
-                    binding.txtUserGender.text = "${it.child("gender").value.toString()}"
-                    binding.txtUserAge.text = "${it.child("age").value ?: "N/A"}"
+//                    binding.txtUserGender.text = "${it.child("gender").value.toString()}"
+//                    binding.txtUserAge.text = "${it.child("age").value ?: "N/A"}"
 
                 }
         }
-
-
-
-//        binding.logout.setOnClickListener {
-//            Firebase.auth.signOut()
-//            startActivity(Intent(this, Login::class.java))
-//            finish()
-//        }
 
 
         binding.imageButton5.setOnClickListener {
@@ -70,5 +62,21 @@ class Profile : AppCompatActivity() {
             val intent = Intent(this, Profile::class.java)
             startActivity(intent)
         }
+
+        binding.myprofile.setOnClickListener {
+            val intent = Intent(this, PersonalInfo::class.java)
+            startActivity(intent)
+        }
+
+        binding.calculateBMI.setOnClickListener {
+            val intent = Intent(this, BMICalculator::class.java)
+            startActivity(intent)
+        }
+
+        binding.seeFav.setOnClickListener {
+            val intent = Intent(this, FavActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

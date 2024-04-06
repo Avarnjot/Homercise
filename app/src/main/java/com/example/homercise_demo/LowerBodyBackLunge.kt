@@ -8,16 +8,24 @@ import android.widget.VideoView
 import com.example.homercise_demo.databinding.ActivityLowerBodyBackLungeBinding
 import com.example.homercise_demo.databinding.ActivityLowerBodySideLegBinding
 import com.example.homercise_demo.databinding.ActivityLowerBodySquatsBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LowerBodyBackLunge : AppCompatActivity() {
 
     private lateinit var binding: ActivityLowerBodyBackLungeBinding
     private lateinit var videoViewBackLunge: VideoView
+    private lateinit var databaseRef: DatabaseReference
+    private val userId: String? = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var databaseManager: DatabaseManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLowerBodyBackLungeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        databaseRef = FirebaseDatabase.getInstance().reference
+        databaseManager = DatabaseManager()
 
         videoViewBackLunge = findViewById(R.id.video1)
 //        videoView2 = findViewById(R.id.videoView2)
@@ -33,7 +41,11 @@ class LowerBodyBackLunge : AppCompatActivity() {
 
         videoViewBackLunge.setOnCompletionListener { mp ->
             mp.start()
+        }
 
+        binding.buttonAddToFavorites.setOnClickListener {
+            databaseManager.saveActivityToDatabase(videoUri1.toString(), "Back Lunge", this)
+        }
 
 
             binding.imageButton5.setOnClickListener {
@@ -58,4 +70,4 @@ class LowerBodyBackLunge : AppCompatActivity() {
             }
         }
     }
-}
+

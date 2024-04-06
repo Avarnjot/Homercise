@@ -9,11 +9,19 @@ import android.widget.Switch
 import com.example.homercise_demo.databinding.ActivityMainBinding
 import com.example.homercise_demo.databinding.ActivitySettingBinding
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Setting : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
     private lateinit var changeThemeButton: Button
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -21,12 +29,17 @@ class Setting : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.editinfo.setOnClickListener {
+            val intent = Intent(this, EditInfo::class.java)
+            startActivity(intent)
+        }
+
         binding.logout.setOnClickListener {
             Firebase.auth.signOut()
             startActivity(Intent(this, Login::class.java))
             finish()
         }
-
 
         binding.imageButton5.setOnClickListener {
             val intent = Intent(this, Home::class.java)

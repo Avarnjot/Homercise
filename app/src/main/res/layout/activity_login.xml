@@ -16,28 +16,32 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="232dp"
-            android:layout_height="67dp"
+            android:layout_width="370dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="1dp"
+            app:cornerRadius="15dp"
             android:backgroundTint="@color/white"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:text="Login"
+            android:text="Log in"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/red"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.072" />
+            app:layout_constraintVertical_bias="0.044" />
 
         <Button
             android:id="@+id/btnCreateAcc"
-            android:layout_width="232dp"
-            android:layout_height="67dp"
+            android:layout_width="370dp"
+            android:layout_height="80dp"
+            app:cornerRadius="15dp"
             android:backgroundTint="@color/white"
+            android:layout_marginTop="1dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Create"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -49,14 +53,14 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.157" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:backgroundTint="@color/white"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -74,7 +78,7 @@
             android:text="@string/login1"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,16 +92,16 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:text="@string/login2"
-            android:textSize="22sp"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintVertical_bias="0.283" />
+            app:layout_constraintVertical_bias="0.194" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

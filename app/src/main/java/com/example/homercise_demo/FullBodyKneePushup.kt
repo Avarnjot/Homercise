@@ -7,16 +7,25 @@ import android.os.Bundle
 import android.widget.VideoView
 import com.example.homercise_demo.databinding.ActivityFullBodyBurpeesBinding
 import com.example.homercise_demo.databinding.ActivityFullBodyKneePushupBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class FullBodyKneePushup : AppCompatActivity() {
 
     private lateinit var binding: ActivityFullBodyKneePushupBinding
     private lateinit var videoViewKneePushup: VideoView
+    private lateinit var databaseRef: DatabaseReference
+    private val userId: String? = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var databaseManager: DatabaseManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFullBodyKneePushupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        databaseRef = FirebaseDatabase.getInstance().reference
+        databaseManager = DatabaseManager()
 
         videoViewKneePushup = findViewById(R.id.video1)
 
@@ -29,7 +38,11 @@ class FullBodyKneePushup : AppCompatActivity() {
         videoViewKneePushup.setOnCompletionListener { mp ->
             mp.start()
 
+        }
 
+        binding.buttonAddToFavorites.setOnClickListener {
+            databaseManager.saveActivityToDatabase(videoUri1.toString(), "Knee Pushups", this)
+        }
 
             binding.imageButton5.setOnClickListener {
                 val intent = Intent(this, Home::class.java)
@@ -53,4 +66,3 @@ class FullBodyKneePushup : AppCompatActivity() {
             }
         }
     }
-}

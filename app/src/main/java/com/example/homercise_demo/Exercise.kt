@@ -8,6 +8,7 @@ import com.example.homercise_demo.databinding.ActivityExerciseBinding
 import com.example.homercise_demo.databinding.ActivityMainBinding
 
 class Exercise : AppCompatActivity() {
+
     private lateinit var binding: ActivityExerciseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
