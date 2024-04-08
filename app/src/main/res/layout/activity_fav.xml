@@ -63,47 +63,54 @@
 
             <Button
                 android:id="@+id/previous_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginTop="48dp"
-                android:backgroundTint="@color/red"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#FF1100"
+                android:fontFamily="sans-serif-smallcaps"
                 android:text="Back"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="25sp"
-                app:cornerRadius="100dp"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_video_view" />
+                app:layout_constraintTop_toBottomOf="@+id/next_button" />
 
             <Button
                 android:id="@+id/next_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="48dp"
+                android:backgroundTint="#FF1100"
+                android:fontFamily="sans-serif-smallcaps"
                 android:text="Next"
-                app:cornerRadius="50dp"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="25sp"
-                android:backgroundTint="@color/red"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.846"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_video_view" />
 
             <Button
                 android:id="@+id/delete_button"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/next_button"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="156dp"
-                android:backgroundTint="@color/red"
-                android:text="Delete"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#FF1100"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Delete Favourite"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="25sp"
                 app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_video_view" />
+                app:layout_constraintTop_toBottomOf="@+id/previous_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
