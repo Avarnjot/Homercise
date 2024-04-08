@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homercise_demo.databinding.ActivityUpperBodyBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 
 class UpperBody : AppCompatActivity() {
@@ -17,6 +20,11 @@ class UpperBody : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUpperBodyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
 
             binding.exerciseStretching.setOnClickListener {

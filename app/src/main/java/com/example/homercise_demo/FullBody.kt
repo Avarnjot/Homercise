@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.homercise_demo.databinding.ActivityFullBodyBinding
 import com.example.homercise_demo.databinding.ActivityLowerBodyBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class FullBody : AppCompatActivity() {
     private lateinit var binding: ActivityFullBodyBinding
@@ -13,6 +16,11 @@ class FullBody : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFullBodyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
             binding.pushup.setOnClickListener {
                 val intent = Intent(this, FullBodyPushup::class.java)

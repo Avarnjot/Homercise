@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.VideoView
 import com.example.homercise_demo.databinding.ActivityLowerBodyBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class LowerBody : AppCompatActivity() {
 
@@ -16,7 +19,10 @@ class LowerBody : AppCompatActivity() {
         binding = ActivityLowerBodyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
             binding.squats.setOnClickListener {
                 val intent = Intent(this, LowerBodySquats::class.java)

@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.homercise_demo.databinding.ActivityLoginBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
@@ -23,6 +26,7 @@ class Login : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         binding.btnLogin.setOnClickListener {
             startActivity(Intent(this, InLogin :: class.java))
             finish()
@@ -33,4 +37,6 @@ class Login : AppCompatActivity() {
             finish()
         }
     }
+
+
 }

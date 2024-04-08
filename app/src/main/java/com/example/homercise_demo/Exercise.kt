@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import com.example.homercise_demo.databinding.ActivityExerciseBinding
 import com.example.homercise_demo.databinding.ActivityMainBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class Exercise : AppCompatActivity() {
 
@@ -16,6 +19,10 @@ class Exercise : AppCompatActivity() {
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
             binding.imageButton5.setOnClickListener {
                 val intent = Intent(this, Home::class.java)

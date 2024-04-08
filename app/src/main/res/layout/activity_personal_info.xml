@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,26 +53,11 @@
             android:layout_height="wrap_content">
 
 
-            <ImageView
-                android:id="@+id/home_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:background="@drawable/personalinfo"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-
             <TextView
                 android:id="@+id/txtUserGender"
                 android:layout_width="141dp"
                 android:layout_height="53dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="52dp"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -79,7 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.94"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_toolbar" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtUserAge"
@@ -99,7 +85,7 @@
                 android:id="@+id/gender"
                 android:layout_width="141dp"
                 android:layout_height="53dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="52dp"
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Gender "
                 android:textAlignment="viewStart"
@@ -109,7 +95,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.059"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_toolbar" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/age"
@@ -190,6 +176,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/9214589741"
+        ads:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -200,7 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/profile_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar2"
         app:layout_constraintVertical_bias="1.0">
 
 

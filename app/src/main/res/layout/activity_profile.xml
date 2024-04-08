@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDECEC"
     tools:context=".Home">
 
     <androidx.appcompat.widget.Toolbar
@@ -37,8 +36,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
@@ -155,62 +154,74 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/9214589741"
+        ads:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/scrollView5"
+        ads:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="761dp" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="#FF1100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="#FF1100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/toolbar2"
-            app:layout_constraintVertical_bias="1.0">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="69dp"
+                android:layout_height="50dp"
+                android:background="#FF1100"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/homeicon" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="69dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:background="#FF1100"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/exercise" />
 
-                <ImageButton
-                    android:id="@+id/imageButton5"
-                    android:layout_width="69dp"
-                    android:layout_height="50dp"
-                    android:background="#FF1100"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/homeicon" />
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="69dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:background="#FF1100"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/setting" />
 
-                <ImageButton
-                    android:id="@+id/imageButton6"
-                    android:layout_width="69dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="12dp"
-                    android:background="#FF1100"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/exercise" />
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="69dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:background="#FF1100"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/profile" />
 
-                <ImageButton
-                    android:id="@+id/imageButton7"
-                    android:layout_width="69dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="12dp"
-                    android:background="#FF1100"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/setting" />
+        </LinearLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-                <ImageButton
-                    android:id="@+id/imageButton8"
-                    android:layout_width="69dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="12dp"
-                    android:background="#FF1100"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/profile" />
-
-            </LinearLayout>
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

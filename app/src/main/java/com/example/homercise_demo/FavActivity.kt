@@ -13,6 +13,9 @@ import com.example.homercise_demo.databinding.ActivityFavBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.example.homercise_demo.R
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class FavActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavBinding
@@ -30,6 +33,11 @@ class FavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFavBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         videoView = findViewById(R.id.profile_video_view)
         previousButton = findViewById(R.id.previous_button)

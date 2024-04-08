@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import com.example.homercise_demo.databinding.ActivityBmicalculatorBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +25,11 @@ class BMICalculator : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bmicalculator)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
             databaseRef = FirebaseDatabase.getInstance().reference
 

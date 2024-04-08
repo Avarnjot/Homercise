@@ -8,6 +8,9 @@ import android.widget.Toast
 import com.example.homercise_demo.databinding.ActivityEditInfoBinding
 import com.example.homercise_demo.databinding.ActivityExerciseBinding
 import com.example.homercise_demo.databinding.ActivityPersonalInfoBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -22,6 +25,11 @@ class EditInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         val database = userId?.let { FirebaseDatabase.getInstance().getReference("Users").child(it) }

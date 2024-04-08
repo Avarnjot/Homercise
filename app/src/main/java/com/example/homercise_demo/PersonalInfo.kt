@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.homercise_demo.databinding.ActivityPersonalInfoBinding
 import com.example.homercise_demo.databinding.ActivityProfileBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
@@ -20,6 +23,11 @@ class PersonalInfo : AppCompatActivity() {
 
         binding = ActivityPersonalInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this)
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         auth = FirebaseAuth.getInstance()
 
